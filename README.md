@@ -2,59 +2,52 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>KAUST Photonics Summer Camp</title>
+  <title>Smart Home OS - Terminal CTF Challenge</title>
 </head>
 <body>
 
-  <h1>KAUST Photonics Summer Camp (PSC)</h1>
+  <h1>🏠 Smart Home OS - Terminal CTF Challenge</h1>
+  <p>
+    A fully interactive text-based escape room and Capture The Flag (CTF) challenge. 
+    Players are trapped inside a hyper-modern smart home that has triggered a lockdown protocol. 
+    To escape, they must explore rooms, gather clues, unlock the family safe, and decrypt the central AI’s override cipher.
+  </p>
 
-  <h2>📌 Program Snapshot</h2>
+  <h2>✨ Features</h2>
   <ul>
-    <li><strong>Organizer:</strong> King Abdullah University of Science and Technology (KAUST), Saudi Arabia</li>
-    <li><strong>Duration:</strong> 4 weeks (usually July)</li>
-    <li><strong>Eligibility:</strong> Undergraduate and Master’s students worldwide</li>
-    <li><strong>Funding:</strong> Fully sponsored — travel, housing, and living costs covered</li>
-    <li><strong>Application Deadline:</strong> Typically end of March (for the July intake)</li>
+    <li><strong>Custom Text Parser</strong> – Navigate rooms using classic MUD-style commands such as <em>go north</em> and <em>examine fridge</em>.</li>
+    <li><strong>Dynamic Environment</strong> – Room descriptions and items change as puzzles are solved.</li>
+    <li><strong>Auto-Generating Cryptography</strong> – The final hex cipher is generated using XOR encryption with a custom FLAG and KEY.</li>
+    <li><strong>Multiplayer Ready</strong> – Can be hosted using netcat, allowing multiple players to connect and play simultaneously.</li>
   </ul>
 
-  <h2>🔬 What You’ll Do</h2>
-  <ul>
-    <li>Work on real research projects in areas like:
-      <ul>
-        <li>Semiconductor lasers</li>
-        <li>Photonic integrated circuits</li>
-        <li>Quantum technologies</li>
-        <li>Optical communications</li>
-        <li>Neuromorphic computing</li>
-        <li>Hyper‑vision systems</li>
-      </ul>
-    </li>
-    <li>Access KAUST’s nanofabrication and advanced imaging facilities</li>
-    <li>Participate in workshops, seminars, and field trips</li>
-    <li>Network with international peers and leading scientists</li>
-  </ul>
+  <h2>🚀 How to Play (Solo / Local)</h2>
+  <p>If you want to run the game locally without hosting a server:</p>
+  <ol>
+    <li>Ensure Python 3 is installed.</li>
+    <li>Clone or download this repository.</li>
+    <li>Open a terminal and run:</li>
+  </ol>
+  <pre><code>python3 smarthome.py</code></pre>
 
-  <h2>🎯 Benefits</h2>
-  <ul>
-    <li>Gain lab experience in world‑class facilities</li>
-    <li>Build an international research network</li>
-    <li>Strengthen your profile for graduate school or research careers</li>
-    <li>Experience KAUST’s unique international campus environment</li>
-  </ul>
+  <h2>🌐 How to Host for Friends (Server Mode)</h2>
+  <p>You can host the game so others can connect through their terminal using netcat, giving the experience of connecting to a remote system.</p>
 
-  <h2>⚠️ Important Notes</h2>
-  <ul>
-    <li>KAUST emphasizes academic integrity — transcripts and documents are verified carefully. Fake submissions are almost always caught and lead to rejection.</li>
-    <li>Sensitive data (like religion) is collected only for visa support, not for admissions discrimination.</li>
-    <li>The program is highly competitive, so strong academic records and a compelling motivation letter are key.</li>
-  </ul>
+  <h3>1. Start the Server</h3>
+  <p>Install socat:</p>
+  <pre><code>sudo apt install socat</code></pre>
+  <p>Run the following command to bind the game to port 1337:</p>
+  <pre><code>socat TCP-LISTEN:1337,reuseaddr,fork EXEC:"python3 -u smarthome.py"</code></pre>
+  <p>Your terminal will remain blank while the server listens for incoming connections.</p>
 
-  <h2>📅 Next Steps</h2>
-  <ul>
-    <li>Prepare your application materials: transcripts, CV, motivation letter, recommendation letters.</li>
-    <li>Submit your application before the deadline (typically March 31).</li>
-    <li>Check KAUST’s official PSC page for updates.</li>
-  </ul>
+  <h3>2. Connect as a Player</h3>
+  <p>Players can connect using netcat.</p>
+  <p>If they are on the same local network:</p>
+  <pre><code>nc &lt;your_local_ip_address&gt; 1337</code></pre>
+  <p>You can test it yourself by opening another terminal and running:</p>
+  <pre><code>nc localhost 1337</code></pre>
+
+  <p><strong>Good luck escaping the smart home. The system is watching. 🔐</strong></p>
 
   <hr>
   <p><em>Developed by Magne Dina Neves</em></p>
