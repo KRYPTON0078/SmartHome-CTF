@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Smart Home OS - Terminal CTF Challenge</title>
+  
 </head>
 <body>
 
